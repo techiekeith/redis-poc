@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CLI", "CLI\CLI.csproj", "{CC54B009-9935-481A-8EE0-CA34F88FA5FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisPOC", "RedisPOC\RedisPOC.csproj", "{C9FD8976-0C28-40EF-9692-56E7B331658A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisPOC.Test", "RedisPOC.Test\RedisPOC.Test.csproj", "{3298D12A-2A9D-49AC-950C-A0219F1FF905}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC54B009-9935-481A-8EE0-CA34F88FA5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC54B009-9935-481A-8EE0-CA34F88FA5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC54B009-9935-481A-8EE0-CA34F88FA5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC54B009-9935-481A-8EE0-CA34F88FA5FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9FD8976-0C28-40EF-9692-56E7B331658A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9FD8976-0C28-40EF-9692-56E7B331658A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9FD8976-0C28-40EF-9692-56E7B331658A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9FD8976-0C28-40EF-9692-56E7B331658A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3298D12A-2A9D-49AC-950C-A0219F1FF905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3298D12A-2A9D-49AC-950C-A0219F1FF905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3298D12A-2A9D-49AC-950C-A0219F1FF905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3298D12A-2A9D-49AC-950C-A0219F1FF905}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
