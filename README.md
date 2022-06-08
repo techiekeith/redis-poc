@@ -2,7 +2,14 @@
 
 A small proof-of-concept program to familiarise myself with the Redis API.
 
-## Running Redis
+## Environment variables
+
+```
+export REDIS_HOST=<hostname>
+export REDIS_PORT=<port>
+```
+
+## Running the Redis server locally
 
 ```
 docker-compose up -d
@@ -16,6 +23,8 @@ dotnet build
 
 ## Testing
 
+Start the local Redis container before running the tests.
+
 ```
 dotnet test
 ```
@@ -27,4 +36,3 @@ On Linux or macOS you may need to run `dotnet test; stty echo` because reasons.
 ```
 dotnet run --project CLI
 ```
-

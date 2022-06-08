@@ -41,6 +41,22 @@ switch (args[0])
         var successAsync = await redis.SetAsync(args[1], JsonConvert.DeserializeObject(args[2]));
         Console.WriteLine("Update {0}.", successAsync ? "succeeded" : "failed");
         break;
+    case "setnx":
+        if (args.Length != 3)
+        {
+            Syntax();
+        }
+        var successNx = redis.SetIfNotExists(args[1], JsonConvert.DeserializeObject(args[2]));
+        Console.WriteLine("Set if not exists {0}.", successNx ? "succeeded" : "failed");
+        break;
+    case "setnx-async":
+        if (args.Length != 3)
+        {
+            Syntax();
+        }
+        var successNxAsync = await redis.SetIfNotExistsAsync(args[1], JsonConvert.DeserializeObject(args[2]));
+        Console.WriteLine("Set if not exists {0}.", successNxAsync ? "succeeded" : "failed");
+        break;
     case "del":
         var recordsAffected = redis.Del(args[1..]);
         Console.WriteLine("{0} record{1} deleted.", recordsAffected, recordsAffected == 1 ? "" : "s");
@@ -60,6 +76,7 @@ void Syntax()
     Console.WriteLine("  exists <key> - determines the existence of a record");
     Console.WriteLine("  get <key> - gets the value of a record");
     Console.WriteLine("  set <key> <value> (<value>...) - sets the value of a record");
+    Console.WriteLine("  setnx <key> <value> (<value>...) - sets the value of a record if it does not already exist");
     Console.WriteLine("  del <key> (<key> ...) - removes one or more records");
     Console.WriteLine("Use 'exists-async', 'get-async', 'set-async' and 'del-async' to test the async functions.");
     Environment.Exit(1);

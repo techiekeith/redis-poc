@@ -117,6 +117,53 @@ public class RedisWrapperTests
     }
 
     [Test]
+    public void TestSetIfNotExists_Overwrite()
+    {
+        var replacement = new ExampleObject
+        {
+            Id = Guid.Parse("ffeeddcc-bbaa-9988-7766-554433221100"),
+            Name = "Replacement Object"
+        };
+        var result = _redis.SetIfNotExists("test_user_key", replacement);
+        Assert.False(result);
+        var nullableObject = _redis.Get<ExampleObject>("test_user_key");
+        Assert.IsNotNull(nullableObject);
+        var realObject = nullableObject!;
+        Assert.AreEqual(Guid.Parse("00112233-4455-6677-8899-aabbccddeeff"), realObject.Id);
+        Assert.AreEqual("Test User", realObject.Name);
+    }
+    
+    [Test]
+    public void TestSetIfNotExists_NullValue()
+    {
+        var result = _redis.SetIfNotExists("test_set_null_value", null);
+        Assert.True(result);
+        var exists = _redis.Exists("test_set_null_value");
+        Assert.True(exists);
+        var nullableObject = _redis.Get<ExampleObject>("test_set_null_value");
+        Assert.IsNull(nullableObject);
+    }
+    
+    [Test]
+    public void TestSetIfNotExists_NonNullValue()
+    {
+        var anotherUser = new ExampleObject
+        {
+            Id = Guid.Parse("01234567-89ab-cdef-0123-456789abcdef"),
+            Name = "Another User"
+        };
+        var result = _redis.SetIfNotExists("test_another_user", anotherUser);
+        Assert.True(result);
+        var exists = _redis.Exists("test_another_user");
+        Assert.True(exists);
+        var nullableObject = _redis.Get<ExampleObject>("test_another_user");
+        Assert.IsNotNull(nullableObject);
+        var realObject = nullableObject!;
+        Assert.AreEqual(Guid.Parse("01234567-89ab-cdef-0123-456789abcdef"), realObject.Id);
+        Assert.AreEqual("Another User", realObject.Name);
+    }
+
+    [Test]
     public void TestDel_NoRecords()
     {
         var result = _redis.Del(new[] {"this_will_never_exist"});
