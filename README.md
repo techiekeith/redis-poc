@@ -23,11 +23,12 @@ dotnet build
 
 ## Testing
 
-Start the local Redis container before running the tests.
-
-```
-dotnet test
-```
+* Open a terminal window
+* Set the environment variable `REDIS_HOST` to `localhost`
+* Set the environment variable `REDIS_PORT` to `6379`
+* Start the local Redis container with `docker-compose up -d`
+* Enter `dotnet test`
+* Stop the local Redis container with `docker-compose down`
 
 On Linux or macOS you may need to run `dotnet test; stty echo` because reasons.
 
